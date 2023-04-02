@@ -36,7 +36,7 @@ using man more efficiently to find the commands you need:
 | `kill` | Send a signal to a process | `kill PID` |
 | `df` | Display disk usage | `df -h` |
 | `du` | Display disk usage of a file or directory | `du -h file.txt` |
-
+| `&&` | The `&&` operator is ensure that a command has succeeded before continuing with another command. | `$ touch myfile.txt && ls myfile.txt` |
 
 ## Optional Parameters for the `find` Command
 
