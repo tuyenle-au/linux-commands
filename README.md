@@ -67,7 +67,7 @@ using man more efficiently to find the commands you need:
 
 
 
-1. To search for a file in the current directory and move it to a folder within the same directory if found, you can use the following commands:
+# 1. > To search for a file in the current directory and move it to a folder within the same directory if found, you can use the following commands:
 ```bash
 file_name="file.txt"; folder_name="destination_folder"; ls | grep -w "$file_name" && mv "$file_name" "$folder_name/"
 ```
@@ -86,7 +86,7 @@ file_name="file.txt"; folder_name="destination_folder"; ls | grep -w "$file_name
 The command uses a pipeline (|) to pass the output of the ls command to the grep command, which then filters the list of files and directories to find the specified file. If the file is found, the mv command is executed to move the file to the specified folder.
 
 
-2. To search for files that match a specific word and open them with vim, you can use the grep command in combination with the find command and the xargs command. Here's an example:
+# 2. > To search for files that match a specific word and open them with vim, you can use the grep command in combination with the find command and the xargs command. Here's an example:
 
 ```bash
 find /path/to/search -type f -name "*input_word*" -print0 | xargs -0 grep -l "input_word" | xargs -o vim
