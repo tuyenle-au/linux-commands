@@ -2,7 +2,7 @@
 The ```man``` command is used to display the manual pages for a command. For example, to view the manual page for the ls command, you can type ```man ls``` in the terminal. The manual pages provide detailed information on the usage, options, and examples of the command.
 using man more efficiently to find the commands you need:
 
-# Important Linux Commands for Using `man`
+## Important Linux Commands for Using `man`
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -13,7 +13,7 @@ using man more efficiently to find the commands you need:
 | `man -a` | Display all manual pages that match a specific keyword or command | `man -a search` |
 | `manpath` | Display the current search path for manual pages | `manpath` |
 
-# Important Linux Commands
+## Important Linux Commands
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -38,7 +38,7 @@ using man more efficiently to find the commands you need:
 | `du` | Display disk usage of a file or directory | `du -h file.txt` |
 
 
-# Optional Parameters for the `find` Command
+## Optional Parameters for the `find` Command
 
 | Parameter | Description | Example |
 |-----------|-------------|---------|
@@ -52,10 +52,7 @@ using man more efficiently to find the commands you need:
 | `-maxdepth` | Limits the search to a specified depth in the directory hierarchy. | `find . -maxdepth 1 -type d` |
 
 
-
-
-
-# Linux Commands that Use `xargs`
+## Linux Commands that Use `xargs`
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -67,7 +64,7 @@ using man more efficiently to find the commands you need:
 
 
 
-# 1. > To search for a file in the current directory and move it to a folder within the same directory if found, you can use the following commands:
+### 1.  To search for a file in the current directory and move it to a folder within the same directory if found, you can use the following commands:
 ```bash
 file_name="file.txt"; folder_name="destination_folder"; ls | grep -w "$file_name" && mv "$file_name" "$folder_name/"
 ```
@@ -86,7 +83,7 @@ file_name="file.txt"; folder_name="destination_folder"; ls | grep -w "$file_name
 The command uses a pipeline (|) to pass the output of the ls command to the grep command, which then filters the list of files and directories to find the specified file. If the file is found, the mv command is executed to move the file to the specified folder.
 
 
-# 2. > To search for files that match a specific word and open them with vim, you can use the grep command in combination with the find command and the xargs command. Here's an example:
+# 2.  To search for files that match a specific word and open them with vim, you can use the grep command in combination with the find command and the xargs command. Here's an example:
 
 ```bash
 find /path/to/search -type f -name "*input_word*" -print0 | xargs -0 grep -l "input_word" | xargs -o vim
