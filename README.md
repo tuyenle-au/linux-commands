@@ -103,7 +103,9 @@ Note that you can replace vim with any other text editor that you prefer.
 ### 3. Retrieves the GPG key with a specific UID and pipes it into the pass init command with the GPG key ID:
 
 Replace <UID> with the UID of the GPG key you want to retrieve. This command does the following:
-
+```shell
+gpg --list-keys --with-colon | awk -F: '/^pub:.*:<UID>:/{print $5}' | pass init $(head -1)
+```
 * `gpg --list-keys --with-colon`: List all GPG keys in colon-separated format.
 * `awk -F: '/^pub:.*:<UID>:/{print $5}'`: Find the line starting with "pub" (public key) that contains the specified UID, and print the 5th field, which is the key ID.
 * pass init $(head -1): Initialize pass with the first line of output from the previous command, which is the GPG key ID.
