@@ -104,9 +104,17 @@ Note that you can replace vim with any other text editor that you prefer.
 
 Replace <UID> with the UID of the GPG key you want to retrieve. This command does the following:
 ```shell
-gpg --list-keys --with-colon | awk -F: '/^pub:.*:<UID>:/{print $5}' | pass init $(head -1)
+gpg --list-keys --with-colon | awk -F: '/^pub:.*:test@outlook.com:/{print $5}' | head -1 | xargs pass init
+
 ```
-* `gpg --list-keys --with-colon`: List all GPG keys in colon-separated format.
-* `awk -F: '/^pub:.*:<UID>:/{print $5}'`: Find the line starting with "pub" (public key) that contains the specified UID, and print the 5th field, which is the key ID.
-* pass init $(head -1): Initialize pass with the first line of output from the previous command, which is the GPG key ID.
+This command does the following:
+
+* `gpg --list-keys --with-colon`: Lists all GPG keys in colon-separated format.
+
+* `awk -F: '/^pub:.*:tuyenle@outlook.com:/{print $5}'`: Filters the output to find the line starting with "pub" (public key) that contains the specified email address, and prints the 5th field, which is the key ID.
+
+* `head -1`: Takes only the first line of output, in case there are multiple keys with the specified email address.
+
+* `xargs pass init`: Initializes `pass` with the key ID.
+
 Note that you'll need to have pass installed and set up with a password store directory before running this command. Also, make sure to replace <UID> with the actual UID of the GPG key you want to use.
