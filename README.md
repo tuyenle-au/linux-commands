@@ -41,15 +41,17 @@ using man more efficiently to find the commands you need:
 # Optional Parameters for the `find` Command
 
 | Parameter | Description | Example |
-|-----------|-------------|
-| `-name` | Searches for files with a specific name. |
-| `-iname` | Searches for files with a specific name, ignoring case. |
-| `-type` | Searches for files of a specific type, such as directories or files. |
-| `-size` | Searches for files of a specific size, such as larger or smaller than a certain value. |
-| `-mtime` | Searches for files that have been modified within a specific time frame. |
-| `-mdepth` | Searches for files that have been modified within a specific time frame. | | find . -maxdepth 1 -type f -name "*.txt" |
-| `-perm` | Searches for files with specific permissions. |
-| `-exec` | Executes a command on the files found by `find`. 
+|-----------|-------------|---------|
+| `-name` | Searches for files with a specific name. | `find . -name file.txt` |
+| `-iname` | Searches for files with a specific name, ignoring case. | `find . -iname FILE.txt` |
+| `-type` | Searches for files of a specific type, such as directories or files. | `find . -type f` |
+| `-size` | Searches for files of a specific size, such as larger or smaller than a certain value. | `find . -size +1M` |
+| `-mtime` | Searches for files that have been modified within a specific time frame. | `find . -mtime -7` |
+| `-perm` | Searches for files with specific permissions. | `find . -perm 644` |
+| `-exec` | Executes a command on the files found by `find`. | `find . -name "*.txt" -exec grep "pattern" {} \;` |
+| `-maxdepth` | Limits the search to a specified depth in the directory hierarchy. | `find . -maxdepth 1 -type d` |
+
+
 
 
 
